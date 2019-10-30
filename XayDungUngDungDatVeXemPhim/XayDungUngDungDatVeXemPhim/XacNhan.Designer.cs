@@ -43,6 +43,7 @@
             this.txtTenKhachHang = new System.Windows.Forms.TextBox();
             this.txtSoGhe = new System.Windows.Forms.TextBox();
             this.txtSdt = new System.Windows.Forms.TextBox();
+            this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -174,11 +175,22 @@
             this.txtSdt.Size = new System.Drawing.Size(100, 20);
             this.txtSdt.TabIndex = 15;
             // 
+            // btnOk
+            // 
+            this.btnOk.Location = new System.Drawing.Point(135, 307);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(75, 21);
+            this.btnOk.TabIndex = 16;
+            this.btnOk.Text = "Ok";
+            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
             // XacNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 323);
+            this.ClientSize = new System.Drawing.Size(333, 340);
+            this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtSdt);
             this.Controls.Add(this.txtSoGhe);
             this.Controls.Add(this.txtTenKhachHang);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.TextBox txtTenKhachHang;
         private System.Windows.Forms.TextBox txtSoGhe;
         private System.Windows.Forms.TextBox txtSdt;
+        private System.Windows.Forms.Button btnOk;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace XayDungUngDungDatVeXemPhim
 {
-    partial class Form1
+    partial class CGV
     {
         /// <summary>
         /// Required designer variable.

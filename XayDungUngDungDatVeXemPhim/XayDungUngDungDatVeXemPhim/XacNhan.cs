@@ -23,6 +23,7 @@ namespace XayDungUngDungDatVeXemPhim
             txtTenPhim.Text = x.TenPhim;
             txtThoiGian.Text = x.ThoiGian;
             txtPhong.Text = x.Phong;
+            txtSdt.Text = x.SDT;
             txtTenKhachHang.Text = x.TenKh;
             foreach (var item in x.Ghe)
             {
@@ -33,6 +34,11 @@ namespace XayDungUngDungDatVeXemPhim
         public XacNhan(VeXemPhim x):this()
         {
             CapNhat(x);
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

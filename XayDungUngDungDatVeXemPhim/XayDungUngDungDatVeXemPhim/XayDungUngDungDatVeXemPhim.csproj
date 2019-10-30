@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="CGV.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CGV.Designer.cs">
+      <DependentUpon>CGV.cs</DependentUpon>
     </Compile>
     <Compile Include="Ghe.cs" />
     <Compile Include="Phim.cs" />
@@ -63,8 +63,8 @@
     <Compile Include="XacNhan.Designer.cs">
       <DependentUpon>XacNhan.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CGV.resx">
+      <DependentUpon>CGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

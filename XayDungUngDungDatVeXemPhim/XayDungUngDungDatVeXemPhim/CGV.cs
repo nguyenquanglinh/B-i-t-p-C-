@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace XayDungUngDungDatVeXemPhim
 {
-    public partial class Form1 : Form
+    public partial class CGV : Form
     {
 
-        public Form1()
+        public CGV()
         {
             InitializeComponent();
             TaoPhim();
+            comboBoxChonPhim.Items.Clear();
             foreach (var item in ListPhim)
             {
                 comboBoxChonPhim.Items.Add(item);
@@ -80,7 +81,7 @@ namespace XayDungUngDungDatVeXemPhim
                 y += 20;
             }
         }
-
+          
         public List<Phim> ListPhim { get; private set; }
         public CheckBox[,] ArrCheck { get; private set; }
 
@@ -113,32 +114,48 @@ namespace XayDungUngDungDatVeXemPhim
         }
         private string LayThoiGian()
         {
-            var thoiGian = comboBoxThoiGian.SelectedItem.ToString();
+            var thoiGian = comboBoxThoiGian.SelectedItem;
             if (thoiGian != null)
-                return thoiGian;
-            MessageBox.Show("chua chọn thời gian xem");
+                return thoiGian.ToString();
+            MessageBox.Show("chưa chọn thời gian xem");
             return null;
         }
         private string LayPhong()
         {
-            var thoiGian = comboBoxPhong.SelectedItem.ToString();
-            if (thoiGian != null)
-                return thoiGian;
-            MessageBox.Show("chua chọn thời gian xem");
+            var phong = comboBoxPhong.SelectedItem;
+            if (phong != null)
+                return phong.ToString();
+            MessageBox.Show("chưa chọn phòng xem");
             return null;
 
         }
         void Main()
         {
-            var ghe = LayGhe();
+            
             var tenPhim = LayTenPhim();
-            var thoiGian = LayThoiGian();
-            var phong = LayPhong();
-            if (tenPhim != null && thoiGian != null && phong != null && !string.IsNullOrWhiteSpace(txtTenKhachHang.Text) && !string.IsNullOrWhiteSpace(txtSDT.Text) && ghe.Count > 0)
+            if (tenPhim != null)
             {
-                var x = new VeXemPhim(tenPhim, thoiGian, phong, txtTenKhachHang.Text, txtSDT.Text, ghe);
-                var xd = new XacNhan(x);
-                xd.ShowDialog();
+                var thoiGian = LayThoiGian();
+                if (thoiGian != null)
+                {
+                    var phong = LayPhong();
+                    if (phong != null)
+                    {
+                        var ghe = LayGhe();
+                        if (ghe.Count > 0)
+                        {
+                            if (!string.IsNullOrWhiteSpace(txtSDT.Text)||!string.IsNullOrWhiteSpace(txtTenKhachHang.Text))
+                            {
+                                var x = new VeXemPhim(tenPhim, thoiGian, phong, txtTenKhachHang.Text, txtSDT.Text, ghe);
+                                var xd = new XacNhan(x);
+                                xd.ShowDialog();
+                            }
+                            else MessageBox.Show("không được để sdt,tên khách hàng trống");
+                            
+                        }
+                        else MessageBox.Show("vui lòng chọn ghế xem");
+                    }
+                }
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -177,10 +194,12 @@ namespace XayDungUngDungDatVeXemPhim
                 MessageBox.Show("vui long thu lại");
                 return;
             }
+            comboBoxThoiGian.Items.Clear();
             foreach (var item in x.ThoiGian)
             {
                 comboBoxThoiGian.Items.Add(item);
             }
+            comboBoxPhong.Items.Clear();
             foreach (var item in x.SoPhong)
             {
                 comboBoxPhong.Items.Add(item);
